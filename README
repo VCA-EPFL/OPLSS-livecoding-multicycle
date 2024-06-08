@@ -1,5 +1,6 @@
-
-1. Install bluespec (https://github.com/B-Lang-org/bsc)
+Dependencies:
+- bluespec (https://github.com/B-Lang-org/bsc)
+- If you want to recompile the tests in test/ you will need to install a riscv toolchain (available in apt on ubuntu)
 
 And then: 
 ```
@@ -10,9 +11,11 @@ make
 
 
 
-./test.sh add32
+./test.sh matmul32
+./multicycle
+
+./test.sh hello32 
 ./multicycle
 ```
 
 
-(If you want to recompile the tests in test/ you will need to install a riscv toolchain (available in apt on ubuntu))
