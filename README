@@ -11,7 +11,10 @@ make
 
 
 
-./test.sh add32
+./test.sh matmul32
+./multicycle
+
+./test.sh hello32 
 ./multicycle
 ```
 
