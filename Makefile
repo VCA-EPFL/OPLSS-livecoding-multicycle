@@ -7,7 +7,8 @@ BSC_FLAGS=--aggressive-conditions --show-schedule -vdir $(BUILD_DIR) -bdir $(BUI
 
 $(BINARY_NAME):
 	mkdir -p $(BUILD_DIR)
-	bsc $(BSC_FLAGS) $@ -verilog -g mk$@ -u $@.bsv
+	#bsc $(BSC_FLAGS) $@ -verilog --ddumpLean -g mk$@ -u $@.bsv
+	bsc $(BSC_FLAGS) $@ -verilog --ddumpLambdaCalculus -g mk$@ -u $@.bsv
 	bsc $(BSC_FLAGS) $@ -sim -g mk$@ -u $@.bsv
 	bsc $(BSC_FLAGS) $@ -sim -e mk$@
 
