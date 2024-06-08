@@ -1,0 +1,18 @@
+
+1. Install bluespec (https://github.com/B-Lang-org/bsc)
+
+And then: 
+```
+make
+
+./test.sh add32
+./multicycle
+
+
+
+./test.sh add32
+./multicycle
+```
+
+
+(If you want to recompile the tests in test/ you will need to install a riscv toolchain (available in apt on ubuntu))

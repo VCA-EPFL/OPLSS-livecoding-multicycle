@@ -1,0 +1,172 @@
+
+build/hello32:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+00000000 <_start>:
+   0:	00000093          	li	ra,0
+   4:	00000113          	li	sp,0
+   8:	00000193          	li	gp,0
+   c:	00000213          	li	tp,0
+  10:	00000293          	li	t0,0
+  14:	00000313          	li	t1,0
+  18:	00000393          	li	t2,0
+  1c:	00000413          	li	s0,0
+  20:	00000493          	li	s1,0
+  24:	00000513          	li	a0,0
+  28:	00000593          	li	a1,0
+  2c:	00000613          	li	a2,0
+  30:	00000693          	li	a3,0
+  34:	00000713          	li	a4,0
+  38:	00000793          	li	a5,0
+  3c:	00000813          	li	a6,0
+  40:	00000893          	li	a7,0
+  44:	00000913          	li	s2,0
+  48:	00000993          	li	s3,0
+  4c:	00000a13          	li	s4,0
+  50:	00000a93          	li	s5,0
+  54:	00000b13          	li	s6,0
+  58:	00000b93          	li	s7,0
+  5c:	00000c13          	li	s8,0
+  60:	00000c93          	li	s9,0
+  64:	00000d13          	li	s10,0
+  68:	00000d93          	li	s11,0
+  6c:	00000e13          	li	t3,0
+  70:	00000e93          	li	t4,0
+  74:	00000f13          	li	t5,0
+  78:	00000f93          	li	t6,0
+  7c:	01000137          	lui	sp,0x1000
+  80:	ff010113          	addi	sp,sp,-16 # fffff0 <_end+0xffdfe4>
+  84:	77d000ef          	jal	ra,1000 <main>
+  88:	00000513          	li	a0,0
+  8c:	044010ef          	jal	ra,10d0 <exit>
+  90:	0000006f          	j	90 <_start+0x90>
+
+Disassembly of section .text:
+
+00001000 <main>:
+    1000:	fe010113          	addi	sp,sp,-32
+    1004:	00112e23          	sw	ra,28(sp)
+    1008:	00812c23          	sw	s0,24(sp)
+    100c:	02010413          	addi	s0,sp,32
+    1010:	00000797          	auipc	a5,0x0
+    1014:	0f878793          	addi	a5,a5,248 # 1108 <exit+0x38>
+    1018:	fef42423          	sw	a5,-24(s0)
+    101c:	fe842783          	lw	a5,-24(s0)
+    1020:	fef42623          	sw	a5,-20(s0)
+    1024:	0200006f          	j	1044 <main+0x44>
+    1028:	fec42783          	lw	a5,-20(s0)
+    102c:	0007c783          	lbu	a5,0(a5)
+    1030:	00078513          	mv	a0,a5
+    1034:	064000ef          	jal	ra,1098 <putchar>
+    1038:	fec42783          	lw	a5,-20(s0)
+    103c:	00178793          	addi	a5,a5,1
+    1040:	fef42623          	sw	a5,-20(s0)
+    1044:	fe842783          	lw	a5,-24(s0)
+    1048:	00e78793          	addi	a5,a5,14
+    104c:	fec42703          	lw	a4,-20(s0)
+    1050:	fcf76ce3          	bltu	a4,a5,1028 <main+0x28>
+    1054:	00000793          	li	a5,0
+    1058:	00078513          	mv	a0,a5
+    105c:	01c12083          	lw	ra,28(sp)
+    1060:	01812403          	lw	s0,24(sp)
+    1064:	02010113          	addi	sp,sp,32
+    1068:	00008067          	ret
+
+0000106c <getchar>:
+    106c:	ff010113          	addi	sp,sp,-16
+    1070:	00812623          	sw	s0,12(sp)
+    1074:	01010413          	addi	s0,sp,16
+    1078:	00001797          	auipc	a5,0x1
+    107c:	f8c78793          	addi	a5,a5,-116 # 2004 <GET_ADDR>
+    1080:	0007a783          	lw	a5,0(a5)
+    1084:	0007a783          	lw	a5,0(a5)
+    1088:	00078513          	mv	a0,a5
+    108c:	00c12403          	lw	s0,12(sp)
+    1090:	01010113          	addi	sp,sp,16
+    1094:	00008067          	ret
+
+00001098 <putchar>:
+    1098:	fe010113          	addi	sp,sp,-32
+    109c:	00812e23          	sw	s0,28(sp)
+    10a0:	02010413          	addi	s0,sp,32
+    10a4:	fea42623          	sw	a0,-20(s0)
+    10a8:	00001797          	auipc	a5,0x1
+    10ac:	f5878793          	addi	a5,a5,-168 # 2000 <PUT_ADDR>
+    10b0:	0007a783          	lw	a5,0(a5)
+    10b4:	fec42703          	lw	a4,-20(s0)
+    10b8:	00e7a023          	sw	a4,0(a5)
+    10bc:	fec42783          	lw	a5,-20(s0)
+    10c0:	00078513          	mv	a0,a5
+    10c4:	01c12403          	lw	s0,28(sp)
+    10c8:	02010113          	addi	sp,sp,32
+    10cc:	00008067          	ret
+
+000010d0 <exit>:
+    10d0:	fe010113          	addi	sp,sp,-32
+    10d4:	00812e23          	sw	s0,28(sp)
+    10d8:	02010413          	addi	s0,sp,32
+    10dc:	fea42623          	sw	a0,-20(s0)
+    10e0:	00001797          	auipc	a5,0x1
+    10e4:	f2878793          	addi	a5,a5,-216 # 2008 <FINISH_ADDR>
+    10e8:	0007a783          	lw	a5,0(a5)
+    10ec:	fec42703          	lw	a4,-20(s0)
+    10f0:	00e7a023          	sw	a4,0(a5)
+    10f4:	fec42783          	lw	a5,-20(s0)
+    10f8:	00078513          	mv	a0,a5
+    10fc:	01c12403          	lw	s0,28(sp)
+    1100:	02010113          	addi	sp,sp,32
+    1104:	00008067          	ret
+
+Disassembly of section .rodata:
+
+00001108 <.rodata>:
+    1108:	6548                	flw	fa0,12(a0)
+    110a:	6c6c                	flw	fa1,92(s0)
+    110c:	77202c6f          	jal	s8,387e <_end+0x1872>
+    1110:	646c726f          	jal	tp,c8756 <_end+0xc674a>
+    1114:	0a21                	addi	s4,s4,8
+	...
+
+Disassembly of section .sdata:
+
+00002000 <PUT_ADDR>:
+    2000:	fff0                	fsw	fa2,124(a5)
+    2002:	f000                	fsw	fs0,32(s0)
+
+00002004 <GET_ADDR>:
+    2004:	fff4                	fsw	fa3,124(a5)
+    2006:	f000                	fsw	fs0,32(s0)
+
+00002008 <FINISH_ADDR>:
+    2008:	fff8                	fsw	fa4,124(a5)
+    200a:	f000                	fsw	fs0,32(s0)
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	3a434347          	fmsub.d	ft6,ft6,ft4,ft7,rmm
+   4:	2820                	fld	fs0,80(s0)
+   6:	2029                	jal	10 <_start+0x10>
+   8:	3031                	jal	fffff814 <_end+0xffffd808>
+   a:	322e                	fld	ft4,232(sp)
+   c:	302e                	fld	ft0,232(sp)
+	...
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1b41                	addi	s6,s6,-16
+   2:	0000                	unimp
+   4:	7200                	flw	fs0,32(a2)
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,14 <_start+0x14>
+   c:	0011                	c.nop	4
+   e:	0000                	unimp
+  10:	1004                	addi	s1,sp,32
+  12:	7205                	lui	tp,0xfffe1
+  14:	3376                	fld	ft6,376(sp)
+  16:	6932                	flw	fs2,12(sp)
+  18:	7032                	flw	ft0,44(sp)
+  1a:	0030                	addi	a2,sp,8
